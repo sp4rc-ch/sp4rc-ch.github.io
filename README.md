@@ -1,3 +1,8 @@
-# sp4rc
-Sp4rc Repo
-## wip
+<div align="center">
+
+# Sparc Knowledge Base
+
+</div>
+
+> [!CAUTION]
+> WIP: This is still a work in progress. Content may change frequently.
