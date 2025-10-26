@@ -1,7 +1,6 @@
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import DefinitionsTable, { type DefinitionsTableProps } from '@/components/DefinitionsTable/DefinitionsTable';
-import type { JSX } from 'react';
 import { Button } from '@/components/ui/button';
 
 export default function Definitions() {
