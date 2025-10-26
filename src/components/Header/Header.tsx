@@ -13,11 +13,11 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
     return (
         <header id="header" className="sticky top-0 z-50 h-0 w-auto">
             <div
-                className={`supports-[backdrop-filter]:bg-background/60 border-b-primary sticky z-50 container mx-4 mt-4 flex h-16 w-auto items-center justify-between rounded-2xl px-3 backdrop-blur ${shadow ? 'shadow-lg' : ''}`}
+                className={`supports-[backdrop-filter]:bg-background/10 sticky z-50 container mx-4 mt-4 flex h-16 w-auto items-center justify-between rounded-2xl border px-3 backdrop-blur ${shadow ? 'shadow-lg' : ''}`}
             >
                 <div className="flex items-center gap-2">
                     <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-                        <h1 className="text-primary text-lg font-bold">The SPARC Handbook</h1>
+                        <h1 className="text-primary text-xl font-bold">The SPARC Handbook</h1>
                     </Link>
                 </div>
 
@@ -27,7 +27,7 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
                             <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
                                 <Link
                                     to="/"
-                                    className="mr-33 flex items-center gap-2"
+                                    className="mr-38 flex items-center gap-2"
                                     onClick={(e) => {
                                         e.preventDefault();
                                         navigate('/');
