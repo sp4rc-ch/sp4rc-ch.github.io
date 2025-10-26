@@ -17,7 +17,7 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
             >
                 <div className="flex items-center gap-2">
                     <Link to="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-                        <h1 className="text-primary text-lg font-bold">sp4rc-ch</h1>
+                        <h1 className="text-primary text-lg font-bold">The SPARC Handbook</h1>
                     </Link>
                 </div>
 
@@ -27,7 +27,7 @@ export default function Header({ shadow = true }: { shadow?: boolean }) {
                             <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
                                 <Link
                                     to="/"
-                                    className="flex items-center gap-2"
+                                    className="mr-33 flex items-center gap-2"
                                     onClick={(e) => {
                                         e.preventDefault();
                                         navigate('/');

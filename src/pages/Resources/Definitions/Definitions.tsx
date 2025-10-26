@@ -1,7 +1,10 @@
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import DefinitionsTable, { type DefinitionsTableProps } from '@/components/DefinitionsTable/DefinitionsTable';
+import type { JSX } from 'react';
+import { Button } from '@/components/ui/button';
 
-export default function Home() {
+export default function Definitions() {
     const hash = window.location.hash.replace('#', '');
     if (hash) {
         setTimeout(() => {
@@ -22,16 +25,43 @@ export default function Home() {
 }
 
 function MainContent({ id = 'MainContent' }: { id?: string }) {
+    const definitions: DefinitionsTableProps = {
+        definitions: [
+            {
+                term: 'SPARC',
+                definition: (
+                    <>
+                        <blockquote className="border-l-2 italic">
+                            The SPARC talent program is the Swiss Army's pre-military training program in cybersecurity. It is available, free of charge, to all Swiss citizens from the age of 16 up to
+                            the start of recruit school. The entire SPARC program, platform and learning content are built and developed by Swiss private-sector companies.
+                        </blockquote>
+                        <br />— Official definition from the{' '}
+                        <Button
+                            variant={'link'}
+                            className="mx-0 px-0"
+                            onClick={() => window.open('https://sparc-cyberdefence.ch/us/aboutsparc/#:~:text=The%20SPARC%20talent,private%2Dsector%20companies.', '_blank', 'noreferrer')}
+                        >
+                            SPARC Website
+                        </Button>
+                    </>
+                ),
+            },
+        ],
+        caption: 'These are some common terms used in this handbook. If you have any suggestions for more terms, please let us know in the Community Chat.',
+    };
+
     return (
         <section id={id} className="relative container mx-auto flex min-h-[90vh] flex-col items-center px-4 py-16 text-center">
             <div className="z-1 container mx-auto mt-8 flex flex-col items-center text-center sm:mt-16">
                 <h1 className="mb-6 flex flex-wrap items-center justify-center gap-2 text-3xl font-bold tracking-tight md:text-4xl lg:text-6xl">
-                    <span className="text-primary">The SPARC Handbook</span>
+                    <span className="text-primary">Definitions</span>
                 </h1>
 
-                <p className="text-muted-foreground mb-2 max-w-[800px] text-base md:text-xl">An unofficial handbook for everything related to SPARC, Cybat, and CyLg.</p>
+                <p className="text-muted-foreground mb-2 max-w-[800px] text-base md:text-xl">It is important for communication to be clear, hence a definitions page.</p>
                 <br className="hidden sm:block" />
-                <div className="text-muted-foreground mb-8 max-w-[800px] text-base">TODO: add content to home page and think about how to structure the whole page.</div>
+                <div className="mt-6 w-full max-w-[900px]">
+                    <DefinitionsTable definitions={definitions.definitions} caption={definitions.caption} />
+                </div>
             </div>
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 <div className="absolute top-0 left-0 h-full w-full">
