@@ -5,7 +5,7 @@ import Definitions from '@/pages/Resources/Definitions/Definitions';
 import { Toaster } from '@/components/ui/sonner.tsx';
 import { ThemeProvider } from '@/components/ui/theme-provider.tsx';
 import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogAction } from '@/components/ui/alert-dialog.tsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Checkbox } from './components/ui/checkbox';
 import { Label } from './components/ui/label';
 import { toast } from 'sonner';
@@ -15,6 +15,15 @@ function App() {
         setIsOpen(true);
     });
     const [isOpen, setIsOpen] = useState(localStorage.getItem('hideDisclaimer') !== 'true');
+
+    useEffect(() => {
+        // fix link without reload if: https://sp4rc-ch.github.io/?/resources/definitions
+        // to https://sp4rc-ch.github.io/resources/definitions
+        if (window.location.search.startsWith('?/')) {
+            const newPath = window.location.search.slice(1) + window.location.hash;
+            window.history.replaceState({}, '', newPath);
+        }
+    }, []);
 
     return (
         <>
