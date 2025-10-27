@@ -17,8 +17,6 @@ function App() {
     const [isOpen, setIsOpen] = useState(localStorage.getItem('hideDisclaimer') !== 'true');
 
     useEffect(() => {
-        // fix link without reload if: https://sp4rc-ch.github.io/?/resources/definitions
-        // to https://sp4rc-ch.github.io/resources/definitions
         if (window.location.search.startsWith('?/')) {
             const newPath = window.location.search.slice(1) + window.location.hash;
             window.history.replaceState({}, '', newPath);
@@ -53,7 +51,7 @@ export function DisclaimerDialog({ isOpen, setIsOpen }: { isOpen: boolean; setIs
     return (
         <>
             <AlertDialog open={isOpen}>
-                <AlertDialogContent>
+                <AlertDialogContent className="max-h-[90vh] overflow-y-auto">
                     <AlertDialogHeader>
                         <AlertDialogTitle className="text-center text-xl">Disclaimer</AlertDialogTitle>
                         <AlertDialogDescription className="mt-4 text-center text-base">
